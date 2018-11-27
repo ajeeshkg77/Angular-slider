@@ -1,0 +1,50 @@
+<div class="slideShowContainer" ng-controller="sliderCtrl as slider" align="center">
+	<div class="slideContainer" ng-repeat="image in slideShow track by $index" ng-show="image.status">
+		<img src="{{image.src}}" class="image">
+	</div>
+	<div class="slideControlsContainer">
+		<div class="arrow">
+			<a href="#" ng-click="previous()" class="left"><i class="material-icons" style="font-size: 96px;">arrow_left</i></a>
+			<a href="#" ng-click="next()" class="right"><i class="material-icons"  style="font-size: 96px;">arrow_right</i></a>
+		</div>
+		<div class="footer_button">
+			<a href="#"><i class="material-icons" ng-repeat="image in slideShow track by $index" ng-click="getImage($index)" ng-class="{active: image.status}">fiber_manual_record</i></a>
+		</div>
+	</div>
+</div>
+
+<style>
+	.image{
+	  width: 70%;
+	  height: 40%;
+	  box-shadow: 5px 10px 18px #888888;
+	}
+	.active{
+		color: grey;
+	}
+/*	.material-icons{
+		position: absolute;
+	}*/
+	.slideControlsContainer{
+		/*position: absolute;*/
+		/*top: 0px;*/
+		/*left: 0px;*/
+	}
+/*	.arrow{
+		postion: absolute;
+	}*/
+	.left{
+		position: absolute;
+		top: 35%;
+		left: 15%;
+	}
+	.right{
+		position: absolute;
+		top: 35%;
+		right: 15%;
+	}
+	.footer_buttons{
+		position: relative;
+		top: 10%;
+	}
+</style>
